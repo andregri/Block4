@@ -64,6 +64,48 @@
     <Compile Include="UnitTest09.cs" />
     <Compile Include="UnitTest10.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Exercise01\Exercise01.csproj">
+      <Project>{a0e79a44-e5b4-4581-887d-7efa504c9bb0}</Project>
+      <Name>Exercise01</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exercise02\Exercise02.csproj">
+      <Project>{6c68263f-82b7-45db-962f-3d99e7625cda}</Project>
+      <Name>Exercise02</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exercise03\Exercise03.csproj">
+      <Project>{da79f80c-ec50-4106-ba8e-6f415c586cee}</Project>
+      <Name>Exercise03</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exercise04\Exercise04.csproj">
+      <Project>{e90a62db-ad26-464c-8b99-2720295ca407}</Project>
+      <Name>Exercise04</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exercise05\Exercise05.csproj">
+      <Project>{d11c9812-2e1d-4a0d-b667-ae0a59f4e17c}</Project>
+      <Name>Exercise05</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exercise06\Exercise06.csproj">
+      <Project>{a0bd514b-38ba-4a2a-9706-6943eccefa9a}</Project>
+      <Name>Exercise06</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exercise07\Exercise07.csproj">
+      <Project>{c2ba518c-1e6a-43cc-80b8-21378ae61aed}</Project>
+      <Name>Exercise07</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exercise08\Exercise08.csproj">
+      <Project>{faa665d0-121e-44b4-9048-5de5dc193ad2}</Project>
+      <Name>Exercise08</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exercise09\Exercise09.csproj">
+      <Project>{114d129b-5dc0-418b-aa18-47034efb1ce8}</Project>
+      <Name>Exercise09</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exercise10\Exercise10.csproj">
+      <Project>{5d92c1fa-50fa-4843-a8e8-f3e6d87a1e7b}</Project>
+      <Name>Exercise10</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
