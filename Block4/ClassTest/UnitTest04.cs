@@ -83,5 +83,24 @@ namespace ClassTest
         {
             string s = sList[sList.Count + 1];
         }
+
+        // add methods
+        [TestMethod]
+        public void AddToStartTest()
+        {
+            DoubleLinkedList<int> list = new DoubleLinkedList<int>(1, 2, 3);
+            list.AddToStart(0);
+            int[] expected = new int[] { 0, 1, 2, 3 };
+            CollectionAssert.AreEqual(expected, list.ToArray());
+        }
+
+        [TestMethod]
+        public void AppendTest()
+        {
+            DoubleLinkedList<int> list = new DoubleLinkedList<int>(1, 2, 3);
+            list.Append(4);
+            int[] expected = new int[] { 1, 2, 3, 4 };
+            CollectionAssert.AreEqual(expected, list.ToArray());
+        }
     }
 }
