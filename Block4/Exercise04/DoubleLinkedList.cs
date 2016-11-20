@@ -51,6 +51,21 @@ namespace Exercise04
             }
         }
 
+        public DoubleLinkedList()
+        {
+            Count = 0;
+            Head = null;
+            Tail = null;
+        }
+
+        public DoubleLinkedList(params T[] values) : this()
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                Insert(values[i], i);
+            }
+        }
+
         public DoubleLinkedList<T> Insert(T value, int index)
         {
             if (index < 0 || index > Count)
