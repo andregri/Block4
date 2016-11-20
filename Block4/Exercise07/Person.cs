@@ -84,5 +84,25 @@ namespace Exercise07
         {
             Birthday = birthday;
         }
+
+        public bool Adult
+        {
+            get
+            {
+                int years = DateTime.Today.Year - Birthday.Year;
+                if (years > 18)
+                {
+                    return true;
+                }
+                else if (years == 18)
+                {
+                    if (Birthday.CompareTo(DateTime.Today) > 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
     }
 }

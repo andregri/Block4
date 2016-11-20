@@ -43,5 +43,20 @@ namespace ClassTest
         {
             Person p = new Person("a", "b", new DateTime(1899, 1, 1));
         }
+
+        // properties
+        [TestMethod]
+        public void AdultTestOver18()
+        {
+            Person p = new Person("a", "b", new DateTime(1988, 1, 1));
+            Assert.IsTrue(p.Adult);
+        }
+
+        [TestMethod]
+        public void AdultTestUnder18()
+        {
+            Person p = new Person("a", "b", DateTime.Today.AddDays(-1));
+            Assert.IsFalse(p.Adult);
+        }
     }
 }
