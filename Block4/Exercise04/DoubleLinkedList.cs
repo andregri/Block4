@@ -118,6 +118,36 @@ namespace Exercise04
             return iterator;
         }
 
+        // remove only the first occurrence of value
+        public DoubleLinkedList<T> Remove(T value)
+        {
+            DoubleLinkedListNode<T> node = Find(value);
+            DoubleLinkedListNode<T> previous = node.Previous;
+            DoubleLinkedListNode<T> next = node.Next;
+
+            if (previous != null)
+            {
+                previous.Next = next;
+            }
+            else
+            {
+                Head = node.Next;
+            }
+
+            if (next != null)
+            {
+                next.Previous = previous;
+            }
+            else
+            {
+                Tail = node.Previous;
+            }
+
+            Count--;
+
+            return this;
+        }
+
         public DoubleLinkedList<T> Insert(T value, int index)
         {
             if (index < 0 || index > Count)

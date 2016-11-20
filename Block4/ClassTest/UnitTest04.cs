@@ -118,5 +118,39 @@ namespace ClassTest
             Assert.AreEqual(null, node);
         }
 
+        // remove
+        [TestMethod]
+        public void RemoveTest()
+        {
+            DoubleLinkedList<int> list = new DoubleLinkedList<int>(1, 2, 3);
+            list.Remove(2);
+
+            int[] expected = new int[] { 1, 3 };
+            CollectionAssert.AreEqual(expected, list.ToArray());
+            Assert.AreEqual(1, list.Head.Value);
+            Assert.AreEqual(3, list.Tail.Value);
+        }
+
+        [TestMethod]
+        public void RemoveHeadTest()
+        {
+            DoubleLinkedList<int> list = new DoubleLinkedList<int>(1, 2, 3);
+            list.Remove(1);
+
+            int[] expected = new int[] { 2, 3 };
+            CollectionAssert.AreEqual(expected, list.ToArray());
+            Assert.AreEqual(2, list.Head.Value);
+        }
+
+        [TestMethod]
+        public void RemoveTailTest()
+        {
+            DoubleLinkedList<int> list = new DoubleLinkedList<int>(1, 2, 3);
+            list.Remove(3);
+
+            int[] expected = new int[] { 1, 2 };
+            CollectionAssert.AreEqual(expected, list.ToArray());
+            Assert.AreEqual(2, list.Tail.Value);
+        }
     }
 }
