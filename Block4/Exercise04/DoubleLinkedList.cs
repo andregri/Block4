@@ -34,6 +34,14 @@ namespace Exercise04
             }
         }
 
+        // save the reference of the last node indexed by [] to improve performance
+        private struct IndexedNode
+        {
+            public DoubleLinkedListNode<T> node;
+            public int index;
+        }
+        private IndexedNode lastIndexed = new IndexedNode();
+
         private int count;
         public int Count
         {
@@ -126,6 +134,74 @@ namespace Exercise04
             }
 
             return array;
+        }
+
+        private T Get(int index)
+        {
+            if (index < 0 || index >= Count)
+            {
+                throw new ArgumentOutOfRangeException("Index couldn't be negative or greater than Count.");
+            }
+
+            DoubleLinkedListNode<T> iterator;
+            int counter;
+
+            if (lastIndexed.node == null)
+            {
+                iterator = Head;
+                counter = 0;
+                while (counter != index)
+                {
+                    iterator++;
+                    counter++;
+                }
+            }
+            else
+            {
+                iterator = lastIndexed.node;
+                counter = lastIndexed.index;
+
+                if (counter > index)
+                {
+                    while (counter != index)
+                    {
+                        iterator--;
+                        counter--;
+                    }
+                }
+                else if (counter < index)
+                {
+                    while (counter != index)
+                    {
+                        iterator++;
+                        counter++;
+                    }
+                }
+            }
+
+            lastIndexed.node = iterator;
+            lastIndexed.index = counter;
+
+            return iterator.Value;
+        }
+
+        public T this[int index]
+        {
+            get
+            {
+                if (index == 0)
+                {
+                    return Head.Value;
+                }
+                else if (index == Count - 1)
+                {
+                    return Tail.Value;
+                }
+                else
+                {
+                    return Get(index);
+                }
+            }
         }
     }
 }
