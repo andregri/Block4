@@ -24,9 +24,34 @@ namespace ClassTest
 
             CollectionAssert.AreEqual(expected, array);
         }
+
+        //insert
         [TestMethod]
-        public void TestMethod1()
+        public void InsertTest()
         {
+            DoubleLinkedList<string> list = new DoubleLinkedList<string>();
+            list.Insert("hello", 0).Insert("world", 1).Insert(", ", 1);
+
+            Assert.AreEqual(3, list.Count);
+
+            string[] expected = { "hello", ", ", "world" };
+            string[] array = list.ToArray();
+
+            CollectionAssert.AreEqual(expected, array);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void InsertTestNegativeIndex()
+        {
+            sList.Insert("hello", -1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void InsertTestIndexTooLarge()
+        {
+            sList.Insert("hello", sList.Count + 1);
         }
     }
 }
