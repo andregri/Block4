@@ -8,11 +8,15 @@ namespace ClassTest
     public class UnitTest04
     {
         static DoubleLinkedList<string> sList;
+        static string[] sArray;
+        static int length;
 
         [TestInitialize]
         public void TestInitialize()
         {
             sList = new DoubleLinkedList<string>("hello", "world");
+            sArray = new string[] { "hello", "world" };
+            length = sArray.Length; 
         }
 
         // to array
@@ -20,9 +24,7 @@ namespace ClassTest
         public void ToArray()
         {
             string[] array = sList.ToArray();
-            string[] expected = { "hello", "world" };
-
-            CollectionAssert.AreEqual(expected, array);
+            CollectionAssert.AreEqual(sArray, array);
         }
 
         //insert
