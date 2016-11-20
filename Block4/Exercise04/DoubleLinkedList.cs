@@ -85,6 +85,7 @@ namespace Exercise04
 
             node.Next = Head;
             Head = node;
+            Count++;
 
             return this;
         }
@@ -100,6 +101,7 @@ namespace Exercise04
 
             node.Previous = Tail;
             Tail = node;
+            Count++;
 
             return this;
         }
