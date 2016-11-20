@@ -112,5 +112,20 @@ namespace Exercise04
 
             return this;
         }
+
+        public T[] ToArray()
+        {
+            T[] array = new T[Count];
+
+            DoubleLinkedListNode<T> iterator = Head;
+            int counter = 0;
+            while (iterator != null)
+            {
+                array[counter++] = iterator.Value;
+                iterator = iterator.Next;
+            }
+
+            return array;
+        }
     }
 }
