@@ -102,5 +102,21 @@ namespace ClassTest
             int[] expected = new int[] { 1, 2, 3, 4 };
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
+
+        // find
+        [TestMethod]
+        public void FindTest()
+        {
+            DoubleLinkedListNode<string> node = sList.Find("hello");
+            Assert.AreEqual(sList.Head, node);
+        }
+
+        [TestMethod]
+        public void FindTestNotFound()
+        {
+            DoubleLinkedListNode<string> node = sList.Find("zzhsdjfk");
+            Assert.AreEqual(null, node);
+        }
+
     }
 }

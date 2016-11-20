@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise04
 {
-    public class DoubleLinkedList<T>
+    public class DoubleLinkedList<T> where T : IComparable
     {
         private DoubleLinkedListNode<T> head;
         public DoubleLinkedListNode<T> Head
@@ -104,6 +104,18 @@ namespace Exercise04
             Count++;
 
             return this;
+        }
+
+        public DoubleLinkedListNode<T> Find(T value)
+        {
+            DoubleLinkedListNode<T> iterator = Head;
+
+            while (iterator != null && iterator.Value.CompareTo(value) != 0)
+            {
+                iterator++;
+            }
+
+            return iterator;
         }
 
         public DoubleLinkedList<T> Insert(T value, int index)
