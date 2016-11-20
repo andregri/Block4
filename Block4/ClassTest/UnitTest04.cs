@@ -55,5 +55,33 @@ namespace ClassTest
         {
             sList.Insert("hello", sList.Count + 1);
         }
+
+        // overload []
+        [TestMethod]
+        public void OverloadTest()
+        {
+            string[] array = new string[sList.Count];
+
+            for (int i = 0; i < sList.Count; i++)
+            {
+                array[i] = sList[i];
+            }
+
+            CollectionAssert.AreEqual(sArray, array);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void OverloadTestNegativeIndex()
+        {
+            string s = sList[-1];
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void OverloadTestTooLargeIndex()
+        {
+            string s = sList[sList.Count + 1];
+        }
     }
 }
