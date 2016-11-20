@@ -48,14 +48,18 @@ namespace ClassTest
         [TestMethod]
         public void AdultTestOver18()
         {
-            Person p = new Person("a", "b", new DateTime(1988, 1, 1));
+            DateTime td = DateTime.Today;
+            DateTime date = new DateTime(td.Year - 18, td.Month, td.Day + 1);
+            Person p = new Person("a", "b", date);
             Assert.IsTrue(p.Adult);
         }
 
         [TestMethod]
         public void AdultTestUnder18()
         {
-            Person p = new Person("a", "b", DateTime.Today.AddDays(-1));
+            DateTime td = DateTime.Today;
+            DateTime date = new DateTime(td.Year - 18, td.Month, td.Day - 1);
+            Person p = new Person("a", "b", date);
             Assert.IsFalse(p.Adult);
         }
     }
