@@ -74,6 +74,36 @@ namespace Exercise04
             }
         }
 
+        public DoubleLinkedList<T> AddToStart(T value)
+        {
+            DoubleLinkedListNode<T> node = new DoubleLinkedListNode<T>(value);
+
+            if (Head != null)
+            {
+                Head.Previous = node;
+            }
+
+            node.Next = Head;
+            Head = node;
+
+            return this;
+        }
+
+        public DoubleLinkedList<T> Append(T value)
+        {
+            DoubleLinkedListNode<T> node = new DoubleLinkedListNode<T>(value);
+
+            if (Tail != null)
+            {
+                Tail.Next = node;
+            }
+
+            node.Previous = Tail;
+            Tail = node;
+
+            return this;
+        }
+
         public DoubleLinkedList<T> Insert(T value, int index)
         {
             if (index < 0 || index > Count)
