@@ -96,7 +96,7 @@ namespace Exercise07
                 }
                 else if (years == 18)
                 {
-                    if (Birthday.CompareTo(DateTime.Today) > 0)
+                    if (Birthday.Day.CompareTo(DateTime.Now.Day) >= 0)
                     {
                         return true;
                     }
