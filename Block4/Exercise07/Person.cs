@@ -144,7 +144,7 @@ namespace Exercise07
         {
             get
             {
-                if (DateTime.Now.CompareTo(Birthday) == 0)
+                if (Birthday.CompareTo(DateTime.Today) == 0)
                 {
                     return true;
                 }

@@ -105,7 +105,7 @@ namespace ClassTest
         [TestMethod]
         public void IsBirthDayTest()
         {
-            Person p = new Person("a", "b", DateTime.Now);
+            Person p = new Person("a", "b", DateTime.Today);
             Assert.IsTrue(p.IsBirthday);
         }
     }
