@@ -114,12 +114,12 @@ namespace Exercise07
         {
             get
             {
-                int month = Birthday.Month - 1;
+                int month = Birthday.Month;
                 int day = Birthday.Day;
 
-                if (day >= sunSignDays[month])
+                if (day >= sunSignDays[month - 1])
                 {
-                    return sunSigns[month];
+                    return sunSigns[month - 1];
                 }
                 return sunSigns[(12 - month) % 12];
             }
