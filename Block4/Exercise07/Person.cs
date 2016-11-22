@@ -5,6 +5,11 @@ namespace Exercise07
 {
     public class Person
     {
+        //source english wikipedia
+        public static string[] sunSigns = {"Aquarius", "Pisces", "Aries", "Taurus",
+            "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn"};
+        public static int[] sunSignDays = { 20, 19, 21, 20, 21, 21, 23, 23, 23, 23, 23, 22 };
+
         public string FirstName
         {
             get; set;
@@ -102,6 +107,21 @@ namespace Exercise07
                     }
                 }
                 return false;
+            }
+        }
+
+        public String SunSign
+        {
+            get
+            {
+                int month = Birthday.Month - 1;
+                int day = Birthday.Day;
+
+                if (day >= sunSignDays[month])
+                {
+                    return sunSigns[month];
+                }
+                return sunSigns[(12 - month) % 12];
             }
         }
     }
