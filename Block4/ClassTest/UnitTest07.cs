@@ -108,5 +108,13 @@ namespace ClassTest
             Person p = new Person("a", "b", DateTime.Today);
             Assert.IsTrue(p.IsBirthday);
         }
+
+        // screenname
+        [TestMethod]
+        public void ScreenNameTest()
+        {
+            Person p = new Person("John", "Doe", new DateTime(1980, 2, 25));
+            Assert.AreEqual("johndoe022580", p.ScreenName);
+        }
     }
 }

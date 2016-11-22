@@ -151,5 +151,14 @@ namespace Exercise07
                 return false;
             }
         }
+
+        public string ScreenName
+        {
+            get
+            {
+                return String.Format("{0}{1}{2:00}{3:00}{4:##}", FirstName.ToLower(), LastName.ToLower(),
+                    Birthday.Month, Birthday.Day, Birthday.Year.ToString().Substring(2, 2));
+            }
+        }
     }
 }
