@@ -139,5 +139,17 @@ namespace Exercise07
                 return chineseSigns[terrestrialBranch - 1];
             }
         }
+
+        public bool IsBirthday
+        {
+            get
+            {
+                if (DateTime.Now.CompareTo(Birthday) == 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
     }
 }

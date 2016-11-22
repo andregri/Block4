@@ -94,10 +94,19 @@ namespace ClassTest
         }
 
         // chinese sign
+        [TestMethod]
         public void ChineseSignTest()
         {
             Person p = new Person("a", "b", new DateTime(1996, 9, 5));
             Assert.AreEqual(Person.chineseSigns[0], p.ChineseSign);
+        }
+
+        // Birthday
+        [TestMethod]
+        public void IsBirthDayTest()
+        {
+            Person p = new Person("a", "b", DateTime.Now);
+            Assert.IsTrue(p.IsBirthday);
         }
     }
 }
