@@ -8,7 +8,11 @@ namespace Exercise07
         //source english wikipedia
         public static string[] sunSigns = {"Aquarius", "Pisces", "Aries", "Taurus",
             "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn"};
+
         public static int[] sunSignDays = { 20, 19, 21, 20, 21, 21, 23, 23, 23, 23, 23, 22 };
+
+        public static string[] chineseSigns = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake",
+            "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig" };
 
         public string FirstName
         {
@@ -110,7 +114,7 @@ namespace Exercise07
             }
         }
 
-        public String SunSign
+        public string SunSign
         {
             get
             {
@@ -122,6 +126,17 @@ namespace Exercise07
                     return sunSigns[month - 1];
                 }
                 return sunSigns[(12 - month) % 12];
+            }
+        }
+
+        public string ChineseSign
+        {
+            get
+            {
+                System.Globalization.EastAsianLunisolarCalendar cc = new System.Globalization.ChineseLunisolarCalendar();
+                int sexagenaryYear = cc.GetSexagenaryYear(Birthday);
+                int terrestrialBranch = cc.GetTerrestrialBranch(sexagenaryYear);
+                return chineseSigns[terrestrialBranch - 1];
             }
         }
     }

@@ -45,7 +45,7 @@ namespace ClassTest
         }
 
         // properties
-        //   Adult
+        // Adult
         [TestMethod]
         public void AdultTestOver18()
         {
@@ -64,7 +64,7 @@ namespace ClassTest
             Assert.IsFalse(p.Adult);
         }
 
-        //    sunSign
+        // sunSign
         [TestMethod]
         public void SunSignTestAll()
         {
@@ -91,6 +91,13 @@ namespace ClassTest
             DateTime date = new DateTime(2000, 1, 3);
             Person p = new Person("a", "b", date);
             Assert.AreEqual(Person.sunSigns[11], p.SunSign);
+        }
+
+        // chinese sign
+        public void ChineseSignTest()
+        {
+            Person p = new Person("a", "b", new DateTime(1996, 9, 5));
+            Assert.AreEqual(Person.chineseSigns[0], p.ChineseSign);
         }
     }
 }
