@@ -51,23 +51,5 @@ namespace Exercise04
         }
 
         public DoubleLinkedListNode(T value) : this(value, null, null) { }
-
-        public static DoubleLinkedListNode<T> operator ++(DoubleLinkedListNode<T> node)
-        {
-            if (node == null)
-            {
-                throw new ArgumentNullException("Operand couldn't be null.");
-            }
-            return node.Next;
-        }
-
-        public static DoubleLinkedListNode<T> operator --(DoubleLinkedListNode<T> node)
-        {
-            if (node == null)
-            {
-                throw new ArgumentNullException("Operand couldn't be null.");
-            }
-            return node.Previous;
-        }
     }
 }

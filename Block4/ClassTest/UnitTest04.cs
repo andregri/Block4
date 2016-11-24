@@ -58,7 +58,7 @@ namespace ClassTest
 
         // overload []
         [TestMethod]
-        public void OverloadTest()
+        public void IndexersTest()
         {
             string[] array = new string[sList.Count];
 

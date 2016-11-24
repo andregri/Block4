@@ -112,7 +112,7 @@ namespace Exercise04
 
             while (iterator != null && iterator.Value.CompareTo(value) != 0)
             {
-                iterator++;
+                iterator = iterator.Next;
             }
 
             return iterator;
@@ -226,7 +226,7 @@ namespace Exercise04
                 counter = 0;
                 while (counter != index)
                 {
-                    iterator++;
+                    iterator = iterator.Next;
                     counter++;
                 }
             }
@@ -239,7 +239,7 @@ namespace Exercise04
                 {
                     while (counter != index)
                     {
-                        iterator--;
+                        iterator = iterator.Previous;
                         counter--;
                     }
                 }
@@ -247,7 +247,7 @@ namespace Exercise04
                 {
                     while (counter != index)
                     {
-                        iterator++;
+                        iterator = iterator.Next;
                         counter++;
                     }
                 }
