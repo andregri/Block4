@@ -3,7 +3,7 @@ using Exercise07;
 
 namespace Exercise08
 {
-    class Employee : Person, IPayable
+    public class Employee : Person, IPayable
     {
         private decimal salary;
         public decimal Salary
