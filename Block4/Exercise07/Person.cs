@@ -16,12 +16,12 @@ namespace Exercise07
 
         public string FirstName
         {
-            get; set;
+            get; private set;
         }
 
         public string LastName
         {
-            get; set;
+            get; private set;
         }
 
         private string email;
@@ -80,6 +80,7 @@ namespace Exercise07
             : this(firstName, lastName)
         {
             Email = email;
+            Email = ScreenName + "@gmail.com";
         }
 
         public Person(string firstName, string lastName, DateTime birthday)
