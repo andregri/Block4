@@ -8,7 +8,7 @@ namespace Exercise06
 
         public Time(int hh, int mm)
         {
-            this.minutes = 60 * hh + mm;
+            minutes = 60 * hh + mm;
         }
 
         public int Hour
@@ -44,6 +44,18 @@ namespace Exercise06
             int h = time1.Hour - time2.Hour;
             int m = time1.Minute - time2.Minute;
             return new Time(h, m);
+        }
+
+        public static implicit operator Time(int m)
+        {
+            // since midnight
+            return new Time((m / 60) % 24, m % 60);
+        }
+
+        public static explicit operator int(Time t)
+        {
+            // since midnight
+            return t.minutes % (24 * 60);
         }
     }
 }
