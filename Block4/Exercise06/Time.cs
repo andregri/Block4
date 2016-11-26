@@ -81,4 +81,18 @@ namespace Exercise06
 //Q: Can you declare a static field noon of type Time in the struct type? Why?
 //A: Sì, perchè i membri statici vengono istanziati una sola volta e sono comuni a tutte le
 //   istanze della struct. Inoltre possono essere usati ancora prima di istanziare una struct.
-//   
+//
+//Q: Make the minutes field of struct type Time public (and not readonly) instead of private 
+//   readonly. What result do you get? Why?
+//A: Le struct sono "primitive" perciò quando asssegnamo una variabile (es t1) a un altra (es t2)
+//   con l'operatore '=', stiamo copiando i valori. Quindi quando eseguiamo 't1.minutes = 100;'
+//   stiamo modificando solo la variabile, mentre t2 rimane invariata, perchè sono variabili
+//   primitive distinte (sono locazioni di memoria diverse).
+//   OUTPUT: t1=01:40 and t2=09:30
+//
+//Q: What result do you get if you change Time to be a class instead of a struct type? Why?
+//A: Le classi sono "reference type", quindi quando eseguiamo l'assegnazione tramite '=', 
+//   in realtà stiamo copiando l'indirizzo di t1 in t2: addesso le due variabili puntano alle
+//   stesse locazioni di memoria. pertanto quando modifichiamo i membri di un'istanza, anche 
+//   l'altra sarà modificata.
+//   OUTPUT: t1=01:40 and t2=01:40
