@@ -6,10 +6,13 @@ namespace Exercise06
     {
         private readonly int minutes;
 
-        public Time(int hh, int mm)
+        public Time(int mm)
         {
-            minutes = 60 * hh + mm;
+            minutes = mm;
         }
+
+        public Time(int hh, int mm) : this(60 * hh + mm)
+        { }
 
         public int Hour
         {
@@ -49,7 +52,7 @@ namespace Exercise06
         public static implicit operator Time(int m)
         {
             // since midnight
-            return new Time((m / 60) % 24, m % 60);
+            return new Time(m % (24 * 60));
         }
 
         public static explicit operator int(Time t)
