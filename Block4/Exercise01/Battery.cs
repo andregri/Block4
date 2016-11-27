@@ -33,7 +33,7 @@ namespace Exercise01
 
         public BatteryType Type { get; set; }
 
-        public Battery(string model ,double idleTime , double hoursTalk, BatteryType type = BatteryType.LiMetal)
+        public Battery(string model, double idleTime, double hoursTalk, BatteryType type = BatteryType.LiMetal)
         {
             Model = model;
             IdleTime = idleTime;
