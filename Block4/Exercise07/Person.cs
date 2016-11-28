@@ -126,7 +126,7 @@ namespace Exercise07
                 {
                     return sunSigns[month - 1];
                 }
-                return sunSigns[(12 - month) % 12];
+                return sunSigns[12 - month];
             }
         }
 
