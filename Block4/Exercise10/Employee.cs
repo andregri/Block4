@@ -16,11 +16,11 @@ namespace Exercise10
             set {empName = value; }
         }
 
-        public Employee(string name)
+        public Employee(string empName)
         {
             Name = empName;
         }
 
-        public abstract int calcPaidCheck();                 
+        public abstract double calcPaidCheck();                 
     }
 }
