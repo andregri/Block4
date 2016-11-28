@@ -167,19 +167,19 @@ namespace Exercise04
                 iterator = iterator.Next;
             }
 
+            // link new node in the list
             node.Previous = prev;
             node.Next = iterator;
-
             if (prev != null)
             {
                 prev.Next = node;
             }
-
             if (iterator != null)
             {
                 iterator.Previous = node;
             }
 
+            // update Head and Tail if necessary
             if (counter == 0)
             {
                 Head = node;
