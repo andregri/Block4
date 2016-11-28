@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace Exercise01
 {
     public enum BatteryType { LiIon, LiPo, NiCd, NiMH, LiMetal }
-    class Battery
+    public class Battery
     {
         public string model = null;
-        public double idleTime = 0;
+        public double idleTime = 0; // measured in [hours.minutes]
         public double hoursTalk = 0;
 
         public string Model

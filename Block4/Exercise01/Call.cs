@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise01
 {
-    class Call
+    public class Call
     {
         private DateTime date;
         private DateTime startTime;

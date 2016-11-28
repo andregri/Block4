@@ -7,10 +7,10 @@ using System.Windows.Media; // add PresentationCore.dll
 
 namespace Exercise01
 {
-    class Display
+    public class Display
     {
         private double size;
-        private Color colorsRGB;
+        private uint colors;
 
         public double Size
         {
@@ -18,16 +18,16 @@ namespace Exercise01
             set { size = value; }
         }
 
-        public Color ColorsRGB
+        public uint Colors
         {
-            get { return colorsRGB; }
-            set { colorsRGB = value; }
+            get { return colors; }
+            set { colors = value; }
         }
 
-        public Display(double size, Color myrgb)
+        public Display(double size, uint colors)
         {
             Size = size;
-            ColorsRGB = myrgb;            
+            Colors = colors;            
         }
 
     }
