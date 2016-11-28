@@ -83,5 +83,47 @@ namespace Exercise01
         }
 
 
+        // add several method to manage Call
+        public void AddCall(int duration)
+        {
+            Call incomingCall = new Call(duration);
+            callHistory.Add(incomingCall);
+        }
+
+        // ----------------------------------------------------------
+        public void RemoveCall(DateTime day,int duration)
+        {
+            callHistory.RemoveAll(call => (call.CallDuration == duration && call.Date == day));
+        }
+
+        // ----------------------------------------------------------
+        public void RemoveCallByDay(DateTime day)
+        {
+            callHistory.RemoveAll(call => call.Date == day);
+        }
+
+        // ----------------------------------------------------------
+        public void RemoveCallByDuration(int duration)
+        {
+            callHistory.RemoveAll(call => call.CallDuration == duration);
+        }
+
+        // ----------------------------------------------------------
+        public void DeleteAllCall()
+        {
+            callHistory.Clear();
+        }
+
+        // ----------------------------------------------------------
+        public double GetCallPrice(double ppm) // where ppm = price per minute
+        {
+            double totalAmount = 0;
+            foreach(Call call in callHistory)
+            {
+                totalAmount += call.CallDuration * ppm;
+            }
+
+            return totalAmount;
+        }
     }
 }
