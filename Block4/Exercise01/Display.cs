@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media; // add PresentationCore.dll
 
 namespace Exercise01
 {
@@ -28,6 +27,12 @@ namespace Exercise01
         {
             Size = size;
             Colors = colors;            
+        }
+
+        public override string ToString()
+        {
+            string displayInfo = "Display Size: {1}\nDisplay Colors: {2}\n";
+            return string.Format(displayInfo, Size, Colors);
         }
 
     }

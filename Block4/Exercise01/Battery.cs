@@ -41,5 +41,10 @@ namespace Exercise01
             Type = type;
         }
 
+        public override string ToString()
+        {
+            string batteryInfo = "Battery Model: {1}\nBattery IdleTime: {2}\nBattery HoursTalk: {3}\nBattery Type: {4}\n";
+            return string.Format(batteryInfo, Model, IdleTime, HoursTalk, Type);
+        }
     }
 }

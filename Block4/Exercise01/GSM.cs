@@ -32,7 +32,7 @@ namespace Exercise01
             get { return price; }
             private set
             {
-                if (price >= 0)
+                if (value >= 0)
                     price = value;
                 else
                     throw new ArgumentOutOfRangeException("Invalid Argument: Price must be a positive number");
@@ -72,6 +72,14 @@ namespace Exercise01
         static GSM()
         {
             samsungGalaxyS7 = new GSM("GalaxyS7", "Samsung", 519.90, "Mr.Robot", new Battery(null, 217.40, 22, BatteryType.LiPo), new Display(5.1, 167000000));
+        }
+
+        public override string ToString()
+        {
+            const string fullInfo = "Model: {0}\nManufacturer: {1}\nPrice: {3:c}\nOwner: {4}\n";
+            return string.Format(fullInfo, model, manufacturer, price, owner) + 
+                                    "\t" + battery.ToString() + 
+                                    "\t\t" + display.ToString();
         }
 
 
