@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Exercise10
 {
-    class HourlyWorker : Employee
+    public class HourlyWorker : Employee
     {
-        public double hourlyRate;
-        public double hoursWorked; // measured in [minute.second]
+        private double hourlyRate;
+        private double hoursWorked; // measured in [hours.minute]
          
         public double HourlyRate
         {

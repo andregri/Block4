@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise10
 {
-    public  abstract class Employee
+    public abstract class Employee
     {
         public string empName;
 
@@ -21,6 +21,7 @@ namespace Exercise10
             Name = empName;
         }
 
-        public abstract double calcPaidCheck();                 
+        public abstract double calcPaidCheck();     
+                
     }
 }

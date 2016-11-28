@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise10
 {
-    class SalaryWorker : Employee
+    public class SalaryWorker : Employee
     {
         private double annualSalary;
 
