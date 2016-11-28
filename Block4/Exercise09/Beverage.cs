@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise09
 {
-    class Beverage : MenuItem
+    public class Beverage : MenuItem
     {
         private double small;
         private double medium;
