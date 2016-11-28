@@ -56,7 +56,7 @@ namespace Exercise09
 
         public override string printToString()
         {
-            return base.printToString() + " - " + string.Format("Small: {0:c}, Medium: {1:c}, Large: {2:c}", SmallPrice, MediumPrice,LargePrice);
+            return base.printToString() + " - " + string.Format("Small: {0:c}, Medium: {1:c}, Large: {2:c}", SmallPrice, MediumPrice, LargePrice);
         }
     }
 }
