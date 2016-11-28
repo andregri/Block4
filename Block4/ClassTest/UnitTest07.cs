@@ -45,6 +45,7 @@ namespace ClassTest
         }
 
         // properties
+
         // Adult
         [TestMethod]
         public void AdultTestOver18()
@@ -68,19 +69,13 @@ namespace ClassTest
         [TestMethod]
         public void SunSignTestAll()
         {
-            DateTime date = new DateTime(2000, 1, 1);
+            DateTime date = new DateTime(2000, 1, 25);
             Person p = new Person("a", "b", date);
 
-            for (int i = 0; i < 365; i++, date.AddDays(1))
+            for (int i = 0; i < 12; i++)
             {
-                if (date.Day >= Person.sunSignDays[date.Month - 1])
-                {
-                    Assert.AreEqual(Person.sunSigns[date.Month - 1], p.SunSign);
-                }
-                else
-                {
-                    Assert.AreEqual(Person.sunSigns[(12 - date.Month) % 12], p.SunSign);
-                }
+                Assert.AreEqual(Person.sunSigns[i], p.SunSign);
+                date = date.AddMonths(1);
                 p.Birthday = date;
             }
         }
