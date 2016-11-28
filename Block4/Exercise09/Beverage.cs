@@ -17,7 +17,7 @@ namespace Exercise09
             get { return small; }
             set
             {
-                if (small >= 0)
+                if (value >= 0)
                     small = value;
                 else
                     throw new ArgumentOutOfRangeException("Price can not be negative!");                
@@ -29,7 +29,7 @@ namespace Exercise09
             get { return medium; }
             set
             {
-                if (medium > small)
+                if (value > small)
                     medium = value;
                 else
                     throw new ArgumentOutOfRangeException("Price can not be less than 'small'!");
@@ -40,7 +40,7 @@ namespace Exercise09
             get { return large; }
             set
             {
-                if (large > medium)
+                if (value > medium)
                     large = value;
                 else
                     throw new ArgumentOutOfRangeException("Price can not be less than 'medium'!");
