@@ -8,49 +8,47 @@ namespace Exercise05
 {
     public class Graph
     {
-        private List<int>[] child;
+        private Dictionary<int, int[]> childNodes;
+        private int count;
 
-        public List<int>[] Children
+        public Graph(Dictionary<int, int[]> childNodes)
         {
-            get { return child; }
-            set { child = value; }
-        }
+            this.childNodes = childNodes;
 
-        public Graph(List<int>[] child)
-        {
-            Children = child;
-        }
-
-        public int numberOfNodes
-        {
-            get { return child.Length; }
-        }
-
-        public void FindSubgraph()
-        {
-            List<int> currentSubgraph = new List<int>();
-            bool[] visited = new bool[numberOfNodes];
-
-            for (int i = 0; i < numberOfNodes; i++)
+            count = 0;
+            foreach (var a in childNodes.Values)
             {
-                if (visited[i] != true)
+                count += a.Length > 0 ? a.Length : 1;
+            }
+        }
+
+        public Dictionary<int, int[]> FindSubgraph(int node)
+        {
+            //use DFS algorithm
+            List<int> visited = new List<int>();
+            Stack<int> stack = new Stack<int>();
+
+            stack.Push(node);
+            visited.Add(node);
+
+            Dictionary<int, int[]> subgraph = new Dictionary<int, int[]>();
+            subgraph[node] = childNodes[node];
+
+            while (stack.Count > 0)
+            {
+                int currentNode = stack.Pop();
+                foreach (int childNode in childNodes[currentNode])
                 {
-                    currentSubgraph.Add());
+                    if (!visited.Contains(childNode))
+                    {
+                        stack.Push(childNode);
+                        visited.Add(childNode);
+                        subgraph[childNode] = childNodes[childNode];
+                    }
                 }
             }
+
+            return subgraph;
         }
     }
 }
-
-/* void TraverseDFSRecursive(node)
-{
-if (not visited[node])
-{
-visited[node] = true
-print node
-foreach child node c of node
-{
-TraverseDFSRecursive(c);
-}
-}
-}*/
