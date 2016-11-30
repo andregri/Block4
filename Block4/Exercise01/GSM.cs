@@ -12,9 +12,9 @@ namespace Exercise01
         private string manufacturer = null;
         private double price = 0;
         private string owner = null;
-        private Battery battery;
-        private Display display;
-        private List<Call> callHistory = new List<Call>();
+        public Battery battery;                             // set to public just for unit test purpose
+        public Display display;                             // set to public just for unit test purpose
+        public List<Call> callHistory = new List<Call>();   // set to public just for unit test purpose
         static GSM samsungGalaxyS7;
 
         public string Model
@@ -57,11 +57,16 @@ namespace Exercise01
         }
 
         public GSM(string model, string manufacturer, double price, string owner, Battery battery, Display display)
-            : this(model, manufacturer, price, owner, battery.Model, battery.IdleTime, battery.HoursTalk, 0,display.Size, display.Colors) { }
+            : this(model, manufacturer, price, owner, battery.Model, battery.IdleTime, battery.HoursTalk, battery.Type, display.Size, display.Colors) { }
 
-        public GSM(string model, string manufacturer, double price, string owner, string batteryModel,
-            double batteryIdleTime, double batteryHoursTalk)
+        public GSM(string model, string manufacturer, double price, string owner, string batteryModel, double batteryIdleTime, double batteryHoursTalk)
             : this(model, manufacturer, price, owner, batteryModel, batteryIdleTime, batteryHoursTalk, 0, 0, 0) { }
+
+        public GSM(string model, string manufacturer, double price, string owner, double displaySize, uint displayColors)
+            : this(model, manufacturer, price, owner, null, 0, 0, 0, displaySize, displayColors) { }
+
+        public GSM(string model, string manufacturer, double price, string owner, double batteryHoursTalk, BatteryType batteryType)
+            : this(model, manufacturer, price, owner, null, 0, batteryHoursTalk, batteryType, 0, 0) { }
 
         public GSM(string model, string manufacturer, double price, string owner)
             : this(model, manufacturer, price, owner, null, 0, 0, 0, 0, 0) { }
@@ -77,8 +82,8 @@ namespace Exercise01
         public override string ToString()
         {
             const string fullInfo = "Model: {0}\nManufacturer: {1}\nPrice: {3:c}\nOwner: {4}\n";
-            return string.Format(fullInfo, model, manufacturer, price, owner) + 
-                                    "\t" + battery.ToString() + 
+            return string.Format(fullInfo, model, manufacturer, price, owner) +
+                                    "\t" + battery.ToString() +
                                     "\t\t" + display.ToString();
         }
 
@@ -88,12 +93,6 @@ namespace Exercise01
         {
             Call incomingCall = new Call(duration);
             callHistory.Add(incomingCall);
-        }
-
-        // ----------------------------------------------------------
-        public void RemoveCall(DateTime day,int duration)
-        {
-            callHistory.RemoveAll(call => (call.CallDuration == duration && call.Date == day));
         }
 
         // ----------------------------------------------------------
@@ -118,7 +117,7 @@ namespace Exercise01
         public double GetCallPrice(double ppm) // where ppm = price per minute
         {
             double totalAmount = 0;
-            foreach(Call call in callHistory)
+            foreach (Call call in callHistory)
             {
                 totalAmount += call.CallDuration * ppm;
             }
