@@ -11,7 +11,7 @@ namespace Exercise02
         private string title;
         private string author;
         private string publisher;
-        private int numberISBN;
+        private string numberISBN;
         private DateTime releaseDate;
         
         public string Title
@@ -29,7 +29,7 @@ namespace Exercise02
             get { return publisher; }
             set { publisher = value; }
         }
-        public int NumberISBN
+        public string NumberISBN
         {
             get { return numberISBN; }
             set { numberISBN = value; }
@@ -40,14 +40,13 @@ namespace Exercise02
             set { releaseDate = value; }
         }
 
-        public Book(string title, string author, string publisher, int isbn, DateTime release)
+        public Book(string title, string author, string publisher, string isbn, DateTime release)
         {
             Title = title;
             Author = author;
             Publisher = publisher;
             NumberISBN = isbn;
             ReleaseDate = release;
-
         }
     }
 }

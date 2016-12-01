@@ -10,6 +10,7 @@ namespace Exercise02
     {
         private string name;
         public List<Book> bookList;
+        List<Book> findBook = new List<Book>();
 
         public string Name
         {
@@ -29,11 +30,12 @@ namespace Exercise02
             set { bookList = value; }
         }
 
-        public Library(string name, List<Book> bookList )
+        public Library(string name)
         {
             Name = name;
-            BookList = bookList;
+            BookList = new List<Book>();
         }
+
 
         // several method to perform library actions
         // add option
@@ -61,34 +63,46 @@ namespace Exercise02
         }
 
         // ----------------------------------------------------------
-        public void RemoveBookByISBN(int number)
+        public void RemoveBookByISBN(string number)
         {
             bookList.RemoveAll(book => book.NumberISBN == number);
         }
 
 
         // search options
-        public void SearchBookByTitle(string title)
+        public List<Book> SearchBookByTitle(string title)
         {
-            bookList.FindAll(book => book.Title == title);
+            findBook.Clear();     
+            findBook = bookList.FindAll(book => book.Title == title);
+
+            return findBook;
         }
 
         // ----------------------------------------------------------
-        public void SearchBookByAuthor(string author)
+        public List<Book> SearchBookByAuthor(string author)
         {
-            bookList.FindAll(book => book.Author == author);
+            findBook.Clear();
+            findBook = bookList.FindAll(book => book.Author == author);
+
+            return findBook;
         }
 
         // ----------------------------------------------------------
-        public void SearchBookByPublisher(string publisher)
+        public List<Book> SearchBookByPublisher(string publisher)
         {
-            bookList.FindAll(book => book.Publisher == publisher);
+            findBook.Clear();
+            findBook = bookList.FindAll(book => book.Publisher == publisher);
+
+            return findBook;
         }
 
         // ----------------------------------------------------------
-        public void SearchBookByISBN(int number)
+        public List<Book> SearchBookByISBN(string number)
         {
-            bookList.FindAll(book => book.NumberISBN == number);
+            findBook.Clear();
+            findBook = bookList.FindAll(book => book.NumberISBN == number);
+
+            return findBook;
         }
 
 
@@ -96,7 +110,7 @@ namespace Exercise02
         public string DisplayInfo(Book book)
         {
             const string fullInfo = "Title: {0}\nAuthor: {1}\nPublisher: {2}\nISBN: {3}\nRelease Date: {4}\n" ;
-            return string.Format(fullInfo, book.Title, book.Author, book.Publisher, book.NumberISBN, book.ReleaseDate); 
+            return string.Format(fullInfo, book.Title, book.Author, book.Publisher, book.NumberISBN, book.ReleaseDate.Year); 
         }
     }
 }
