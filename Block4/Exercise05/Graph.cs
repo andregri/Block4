@@ -37,13 +37,23 @@ namespace Exercise05
             while (stack.Count > 0)
             {
                 int currentNode = stack.Pop();
+
+                if (!childNodes.Keys.Contains(currentNode))
+                {
+                    break;
+                }
+
                 foreach (int childNode in childNodes[currentNode])
                 {
                     if (!visited.Contains(childNode))
                     {
                         stack.Push(childNode);
                         visited.Add(childNode);
-                        subgraph[childNode] = childNodes[childNode];
+                        int[] children;
+                        if (childNodes.TryGetValue(childNode, out children) && children.Length != 0)
+                        {
+                            subgraph[childNode] = children;
+                        }
                     }
                 }
             }
