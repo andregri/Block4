@@ -43,7 +43,7 @@
     <Compile Include="IHandler.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TagHandler.cs" />
+    <Compile Include="TagContext.cs" />
     <Compile Include="XmlParseFileException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
