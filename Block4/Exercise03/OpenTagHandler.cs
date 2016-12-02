@@ -8,13 +8,6 @@ namespace Exercise03
 {
     public class OpenTagHandler : IHandler
     {
-        private string text;
-
-        public OpenTagHandler(string text)
-        {
-            this.text = text;
-        }
-
         public string Process(IContext context, string text)
         {
             TagContext tagContext = context as TagContext;
