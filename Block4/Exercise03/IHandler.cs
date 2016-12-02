@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Exercise03
 {
-    interface IHandler
+    public interface IHandler
     {
         string Process(IContext context, string text);
     }
 
-    interface IContext
+    public interface IContext
     {
     }
 }
