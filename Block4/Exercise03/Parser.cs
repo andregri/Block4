@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise03
 {
-    public class Class1
+    public class Parser
     {
     }
 }
