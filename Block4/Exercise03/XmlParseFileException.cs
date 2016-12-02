@@ -9,19 +9,19 @@ namespace Exercise03
     class XmlParseFileException : ApplicationException
     {
         private int line;
-        private string tag;
+        private string tagName;
         public override string Message
         {
             get
             {
-                return String.Format("Expected closing tag {0} at line {1}.", tag, line);
+                return String.Format("Expected closing tag {0} at line {1}.", tagName, line);
             }
         }
 
-        public XmlParseFileException(int line, string tag)
+        public XmlParseFileException(int line, string tagName)
         {
             this.line = line;
-            this.tag = tag;
+            this.tagName = tagName;
         }
     }
 }
