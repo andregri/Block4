@@ -8,12 +8,12 @@ namespace Exercise03
 {
     public class OpenTagHandler : IHandler
     {
-        public string Process(IContext context, string text)
+        public int Process(IContext context, string text)
         {
             TagContext tagContext = context as TagContext;
             if (tagContext == null)
             {
-                return null;
+                throw new ArgumentException("TagHandler needs TagContext.");
             }
 
             int tagDelimiter = text.IndexOf('>');
@@ -33,7 +33,7 @@ namespace Exercise03
 
             tagContext.PushTag(tag);
 
-            return text.Substring(tagDelimiter + 1);
+            return tagDelimiter + 1;
         }
     }
 }

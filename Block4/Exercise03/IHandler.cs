@@ -8,7 +8,7 @@ namespace Exercise03
 {
     public interface IHandler
     {
-        string Process(IContext context, string text);
+        int Process(IContext context, string text);
     }
 
     public interface IContext
