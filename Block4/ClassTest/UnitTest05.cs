@@ -56,12 +56,5 @@ namespace ClassTest
             Dictionary<int, int[]> actual = graph.FindSubgraph(2);
             AreEqual(expected2, actual);
         }
-
-        [TestMethod]
-        public void FindSubgraphTestNode3()
-        {
-            Dictionary<int, int[]> actual = graph.FindSubgraph(3);
-            AreEqual(expected1, actual);
-        }
     }
 }
