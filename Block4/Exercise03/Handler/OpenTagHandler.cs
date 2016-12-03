@@ -28,7 +28,7 @@ namespace Exercise03.Handler
             else
             {
                 int len = tagElements[2].Length;
-                int attrValue = int.Parse(tagElements[2].Substring(0, len - 2));
+                int attrValue = int.Parse(tagElements[2].Substring(1, len - 2));
                 tag = new Tag(tagElements[0], tagElements[1], attrValue);
             }
 
