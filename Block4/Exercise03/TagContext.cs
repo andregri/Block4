@@ -34,7 +34,7 @@ namespace Exercise03
 
     public class TagContext : IContext
     {
-        private static Stack<Tag> tagStack;
+        private static Stack<Tag> tagStack = new Stack<Tag>();
 
         public int Depth
         {
