@@ -1,10 +1,11 @@
 ﻿using System;
+using Exercise03;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise03
+namespace Handler
 {
     class CloseTagHandler : IHandler
     {
