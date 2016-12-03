@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContext.cs" />
     <Compile Include="Handler\CloseTagHandler.cs" />
+    <Compile Include="Handler\DefaultHandler.cs" />
     <Compile Include="Handler\IHandler.cs" />
     <Compile Include="Handler\OpenTagHandler.cs" />
     <Compile Include="Parser.cs" />
