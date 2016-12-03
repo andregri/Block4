@@ -18,7 +18,7 @@ namespace Exercise03.Handler
             }
 
             int tagDelimiter = text.IndexOf('>');
-            string[] tagElements = text.Substring(1, tagDelimiter).Split(new char[] { '=', ' ' });
+            string[] tagElements = text.Substring(1, tagDelimiter - 1).Split(new char[] { '=', ' ' });
 
             Tag tag;
             if (tagElements.Length == 1)
