@@ -1,5 +1,5 @@
 ﻿using System;
-using Handler;
+using Exercise03.Handler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,15 +44,16 @@ namespace Exercise03
             }
         }
 
-        public void PushTag(Tag tag)
+        public void Push(object tag)
         {
-            if (tag != null)
+            Tag t = tag as Tag;
+            if (t != null)
             {
-                tagStack.Push(tag);
+                tagStack.Push(t);
             }
         }
 
-        public Tag PopTag()
+        public object Pop()
         {
             return tagStack.Pop();
         }

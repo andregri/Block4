@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Handler
+namespace Exercise03.Handler
 {
     public class OpenTagHandler : IHandler
     {
@@ -32,7 +32,7 @@ namespace Handler
                 tag = new Tag(tagElements[0], tagElements[1], attrValue);
             }
 
-            tagContext.PushTag(tag);
+            tagContext.Push(tag);
 
             return tagDelimiter + 1;
         }

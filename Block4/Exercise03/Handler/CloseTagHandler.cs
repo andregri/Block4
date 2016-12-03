@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Handler
+namespace Exercise03.Handler
 {
     class CloseTagHandler : IHandler
     {
@@ -18,7 +18,7 @@ namespace Handler
             }
 
             string tagName = text.Substring(2, text.Length - 2);
-            tagContext.PopTag();
+            tagContext.Pop();
 
             return text.Length;
         }

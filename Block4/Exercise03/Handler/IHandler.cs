@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Handler
+namespace Exercise03.Handler
 {
     public interface IHandler
     {
@@ -13,5 +13,7 @@ namespace Handler
 
     public interface IContext
     {
+        void Push(object input);
+        object Pop();
     }
 }
