@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Exercise03.Handler
 {
-    class CloseTagHandler : IHandler
+    class CloseTagHandler : TagHandler, IHandler
     {
         public int Process(IContext context, string text)
         {
