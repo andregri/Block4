@@ -80,13 +80,13 @@ namespace Exercise07
             : this(firstName, lastName)
         {
             Email = email;
-            Email = FirstName + "." + LastName + "@gmail.com";
         }
 
         public Person(string firstName, string lastName, DateTime birthday)
             : this(firstName, lastName)
         {
             Birthday = birthday;
+            Email = ScreenName + "@gmail.com";
         }
 
         public Person(string firstName, string lastName, DateTime birthday, string email)
