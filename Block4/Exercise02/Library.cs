@@ -10,7 +10,6 @@ namespace Exercise02
     {
         private string name;
         public List<Book> bookList;
-        List<Book> findBook = new List<Book>();
 
         public string Name
         {
@@ -71,38 +70,26 @@ namespace Exercise02
 
         // search options
         public List<Book> SearchBookByTitle(string title)
-        {
-            findBook.Clear();     
-            findBook = bookList.FindAll(book => book.Title == title);
-
-            return findBook;
+        {     
+            return bookList.FindAll(book => book.Title == title);
         }
 
         // ----------------------------------------------------------
         public List<Book> SearchBookByAuthor(string author)
         {
-            findBook.Clear();
-            findBook = bookList.FindAll(book => book.Author == author);
-
-            return findBook;
+            return bookList.FindAll(book => book.Author == author);
         }
 
         // ----------------------------------------------------------
         public List<Book> SearchBookByPublisher(string publisher)
         {
-            findBook.Clear();
-            findBook = bookList.FindAll(book => book.Publisher == publisher);
-
-            return findBook;
+            return bookList.FindAll(book => book.Publisher == publisher);
         }
 
         // ----------------------------------------------------------
         public List<Book> SearchBookByISBN(string number)
         {
-            findBook.Clear();
-            findBook = bookList.FindAll(book => book.NumberISBN == number);
-
-            return findBook;
+            return bookList.FindAll(book => book.NumberISBN == number);
         }
 
 
