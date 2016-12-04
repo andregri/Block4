@@ -8,31 +8,31 @@ namespace ClassTest
     public class UnitTest10
     {
         Employee[] workers;
-        HourlyWorker[] employee;
 
         [TestInitialize]
         public void TestEmployee()
         {            
             workers = new Employee[]
             {
-                new HourlyWorker("Pippo", 10.5, 200),
-                new HourlyWorker("Paperino",15.25, 150),
-                new SalaryWorker("ZioPaperone",15000000),
-                new SalaryWorker("Gastaldo", 12500000)
+                new HourlyWorker("Pippo", 10.5m, 200m),
+                new HourlyWorker("Paperino",15.25m, 150m),
+                new SalaryWorker("ZioPaperone",15000000m),
+                new SalaryWorker("Gastaldo", 12000000m)
             };
 
         }
         [TestMethod]
         public void CheckHourPay()
         {
-            Assert.AreEqual(2100, workers[0].calcPaidCheck());
-            Assert.AreEqual(2287.5, workers[1].calcPaidCheck());
+            Assert.AreEqual(2100m, workers[0].calcPaidCheck());
+            Assert.AreEqual(2287.5m, workers[1].calcPaidCheck());
         }
 
+        [TestMethod]
         public void CheckAnnualPay()
         {
-            Assert.AreEqual(1250000, workers[2].calcPaidCheck());
-            Assert.AreEqual(1041666.667, workers[3].calcPaidCheck());
+            Assert.AreEqual(1250000m, workers[2].calcPaidCheck());
+            Assert.AreEqual(1000000m, workers[3].calcPaidCheck());
         }
     }
 }

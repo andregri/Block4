@@ -21,7 +21,7 @@ namespace Exercise10
             Name = empName;
         }
 
-        public abstract double calcPaidCheck();     
+        public abstract decimal calcPaidCheck();     
                 
     }
 }

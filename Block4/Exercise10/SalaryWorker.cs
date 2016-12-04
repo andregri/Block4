@@ -8,9 +8,9 @@ namespace Exercise10
 {
     public class SalaryWorker : Employee
     {
-        private double annualSalary;
+        private decimal annualSalary;
 
-        public double Salary
+        public decimal Salary
         {
             get { return annualSalary; }
             set
@@ -22,12 +22,12 @@ namespace Exercise10
             }
         }
 
-        public SalaryWorker(string empName, double annualSalary) : base (empName)
+        public SalaryWorker(string empName, decimal annualSalary) : base (empName)
         {
             Salary = annualSalary;
         }
 
-        public override double calcPaidCheck()
+        public override decimal calcPaidCheck()
         {
             return (annualSalary / 12);
         }

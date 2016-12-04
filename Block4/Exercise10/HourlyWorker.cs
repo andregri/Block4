@@ -8,10 +8,10 @@ namespace Exercise10
 {
     public class HourlyWorker : Employee
     {
-        private double hourlyRate;
-        private double hoursWorked; // measured in [hours.minute]
+        private decimal hourlyRate;
+        private decimal hoursWorked; // measured in [hours.minute]
          
-        public double HourlyRate
+        public decimal HourlyRate
         {
             get {return hourlyRate; }
             set
@@ -23,7 +23,7 @@ namespace Exercise10
             }
         }
 
-        public double HoursWorked
+        public decimal HoursWorked
         {
             get { return hoursWorked; }
             set
@@ -35,13 +35,13 @@ namespace Exercise10
             }
         }
 
-        public HourlyWorker(string empName, double hourlyRate, double hoursWorked) : base(empName)
+        public HourlyWorker(string empName, decimal hourlyRate, decimal hoursWorked) : base(empName)
         {
             HourlyRate = hourlyRate;
             HoursWorked = hoursWorked;            
         }
 
-        public override double calcPaidCheck()
+        public override decimal calcPaidCheck()
         {
             return HourlyRate * HoursWorked;
             
