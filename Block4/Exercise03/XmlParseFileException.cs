@@ -10,24 +10,7 @@ namespace Exercise03
     {
         private int line;
         private string tagName;
-        public override string Message
-        {
-            get
-            {
-                return String.Format("Expected closing tag {0} at line {1}.", tagName, line);
-            }
-        }
-
-        public XmlParseFileException(int line, string tagName)
-        {
-            this.line = line;
-            this.tagName = tagName;
-        }
-    }
-
-    public class MissingTagException : ApplicationException
-    {
-        public string TagName
+        public MissingTagException ex
         {
             get;
             private set;
@@ -37,13 +20,67 @@ namespace Exercise03
         {
             get
             {
-                return String.Format("Missin tag {0}.", TagName);
+                return String.Format("Expected {0} at line {1}.", ex.Message, line);
             }
         }
 
-        public MissingTagException(string tag)
+        public XmlParseFileException(int line, string tagName, MissingTagException inner)
+            : base(null, inner)
+        {
+            this.line = line;
+            this.tagName = tagName;
+            ex = inner;
+        }
+    }
+
+    public abstract class MissingTagException : ApplicationException
+    {
+        public string TagName
+        {
+            get;
+            private set;
+        }
+
+        public MissingTagException(string tag, Exception inner) : base(null, inner)
         {
             TagName = tag;
         }
+
+        public MissingTagException(string tag)
+            : this(tag, null) { }
+    }
+
+    public class MissingClosingTagException : MissingTagException
+    {
+        public override string Message
+        {
+            get
+            {
+                return String.Format("closing tag {0}", TagName);
+            }
+        }
+
+        public MissingClosingTagException(string tag, Exception inner)
+            : base(tag, inner) { }
+
+        public MissingClosingTagException(string tag)
+            : this(tag, null) { }
+    }
+
+    public class MissingOpeningTagException : MissingTagException
+    {
+        public override string Message
+        {
+            get
+            {
+                return String.Format("opening tag {0}", TagName);
+            }
+        }
+
+        public MissingOpeningTagException(string tag, Exception inner)
+            : base(tag, inner) { }
+
+        public MissingOpeningTagException(string tag)
+            : this(tag, null) { }
     }
 }
