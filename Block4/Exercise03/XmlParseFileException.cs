@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise03
 {
-    class XmlParseFileException : ApplicationException
+    public class XmlParseFileException : ApplicationException
     {
         private int line;
         private string tagName;
@@ -22,6 +22,28 @@ namespace Exercise03
         {
             this.line = line;
             this.tagName = tagName;
+        }
+    }
+
+    public class MissingTagException : ApplicationException
+    {
+        public string TagName
+        {
+            get;
+            private set;
+        }
+
+        public override string Message
+        {
+            get
+            {
+                return String.Format("Missin tag {0}.", TagName);
+            }
+        }
+
+        public MissingTagException(string tag)
+        {
+            TagName = tag;
         }
     }
 }
