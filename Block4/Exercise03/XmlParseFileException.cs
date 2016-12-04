@@ -19,7 +19,7 @@ namespace Exercise03
         {
             get
             {
-                return String.Format("Expected {0} at line {1}.", ex.Message, line);
+                return String.Format("{0} at line {1}.", ex.Message, line);
             }
         }
 
@@ -54,7 +54,7 @@ namespace Exercise03
         {
             get
             {
-                return String.Format("closing tag {0}", TagName);
+                return String.Format("Expected closing tag {0}", TagName);
             }
         }
 
@@ -71,7 +71,7 @@ namespace Exercise03
         {
             get
             {
-                return String.Format("opening tag {0}", TagName);
+                return String.Format("Missing opening tag for {0}", TagName);
             }
         }
 
