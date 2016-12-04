@@ -62,5 +62,25 @@ namespace ClassTest
 
             CollectionAssert.AreEqual(expected, values);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(XmlParseFileException))]
+        public void TestNotClosedTag()
+        {
+            string file = @"../../wrong1.xml";
+            TextReader reader = new StreamReader(file);
+            Parser parser = new Parser();
+            parser.Parse(reader);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(XmlParseFileException))]
+        public void TestNotOpenedTag()
+        {
+            string file = @"../../wrong2.xml";
+            TextReader reader = new StreamReader(file);
+            Parser parser = new Parser();
+            parser.Parse(reader);
+        }
     }
 }
