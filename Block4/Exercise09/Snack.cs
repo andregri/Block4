@@ -8,9 +8,9 @@ namespace Exercise09
 {
     public class Snack : MenuItem
     {
-        private double price;
+        private decimal price;
 
-        public double Price
+        public decimal Price
         {
             get { return price; }
             set
@@ -22,7 +22,7 @@ namespace Exercise09
             }
         }
 
-        public Snack(string name, double price) : base (name)
+        public Snack(string name, decimal price) : base (name)
         {
             Price = price;
         }

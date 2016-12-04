@@ -14,13 +14,13 @@ namespace ClassTest
         {
             menu = new MenuItem[]
             {
-                new Beverage("Lizard Wine", 5.20, 7.45, 9.60),
-                new Beverage("Bilk", 2.00, 3.50, 5.00),
-                new Beverage("Coco Voda", 7.50, 9.00, 12.00),
-                new Beverage("Manhattan", 9.00, 11.00, 14.00),
-                new Snack("Plasmon", 2.66),
-                new Snack("Ringo", 1.04),
-                new Snack("Mikado", 1.87),
+                new Beverage("Lizard Wine", 5.20m, 7.45m, 9.60m),
+                new Beverage("Bilk", 2.00m, 3.50m, 5.00m),
+                new Beverage("Coco Voda", 7.50m, 9.00m, 12.00m),
+                new Beverage("Manhattan", 9.00m, 11.00m, 14.00m),
+                new Snack("Plasmon", 2.66m),
+                new Snack("Ringo", 1.04m),
+                new Snack("Mikado", 1.87m),
             };
         }
 

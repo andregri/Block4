@@ -8,11 +8,11 @@ namespace Exercise09
 {
     public class Beverage : MenuItem
     {
-        private double small;
-        private double medium;
-        private double large;
+        private decimal small;
+        private decimal medium;
+        private decimal large;
 
-        public double SmallPrice
+        public decimal SmallPrice
         {
             get { return small; }
             set
@@ -24,7 +24,7 @@ namespace Exercise09
             }
         }
 
-        public double MediumPrice
+        public decimal MediumPrice
         {
             get { return medium; }
             set
@@ -35,7 +35,7 @@ namespace Exercise09
                     throw new ArgumentOutOfRangeException("Price can not be less than 'small'!");
             }
         }
-        public double LargePrice
+        public decimal LargePrice
         {
             get { return large; }
             set
@@ -47,7 +47,7 @@ namespace Exercise09
             }
         }
 
-        public Beverage(string name, double small, double medium, double large) : base (name)
+        public Beverage(string name, decimal small, decimal medium, decimal large) : base (name)
         {
             SmallPrice = small;
             MediumPrice = medium;
