@@ -60,5 +60,20 @@ namespace Exercise05
 
             return subgraph;
         }
+
+        public Dictionary<int, int[]>[] FindAllSubgraph()
+        {
+            List<int> nodes = childNodes.Keys.ToList<int>();
+            List<Dictionary<int, int[]>> allSubgraph = new List<Dictionary<int, int[]>>();
+
+            foreach(int currentNode in nodes)
+            {
+                var temp = FindSubgraph(currentNode);
+                if (!allSubgraph.Contains(temp))
+                    allSubgraph.Add(temp);
+            }
+
+            return allSubgraph.ToArray();
+        }
     }
 }
