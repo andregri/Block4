@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Exercise03.Handler
 {
-    class CloseTagHandler : TagHandler, IHandler
+    class CloseTagHandler : IHandler
     {
         public int Process(IContext context, string text)
         {
@@ -18,6 +18,7 @@ namespace Exercise03.Handler
             }
 
             string tagName = text.Substring(2, text.Length - 2);
+            //add exception
             tagContext.Pop();
 
             return text.Length;

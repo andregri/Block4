@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Exercise03.Handler
 {
-    public class OpenTagHandler : TagHandler, IHandler
+    public class OpenTagHandler : IHandler
     {
         public int Process(IContext context, string text)
         {
