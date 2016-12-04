@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Exercise03
 {
-    class DataContext : IContext
+    public class DataContext : IContext
     {
         private List<string> data = new List<string>();
 
