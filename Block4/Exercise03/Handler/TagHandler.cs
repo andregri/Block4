@@ -8,16 +8,19 @@ namespace Exercise03.Handler
 {
     public class TagHandler : IHandler
     {
-        private Dictionary<char, TagHandler> handlers;
+        private Dictionary<char, IHandler> handlers;
+        private IHandler defaultHandler;
 
         public TagHandler()
         {
+            defaultHandler = new OpenTagHandler();
+            handlers = new Dictionary<char, IHandler>();
             handlers.Add('/', new CloseTagHandler());
         }
 
         public int Process(IContext context, string line)
         {
-            TagHandler h = null;
+            IHandler h = null;
             handlers.TryGetValue(line[1], out h);
 
             if (h == null)
