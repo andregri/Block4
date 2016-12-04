@@ -12,18 +12,31 @@ namespace ClassTest
         string lineWithAttr = "<name attr=\"1\">Peter</name>";
 
         [TestMethod]
-        public void OpeningTagTestNoAttribute()
+        public void ProcessTagTestNoAttribute()
         {
-            TagContext context = new TagContext();
-            OpenTagHandler handler = new OpenTagHandler();
-            int result = handler.Process(context, lineNoAttr);
+            int result = 0;
+            TagContext tagContext = new TagContext();
 
-            Assert.AreEqual("name", ((Tag)context.Pop()).Name);
-            Assert.AreEqual(lineNoAttr.IndexOf('>') + 1, result);    
+            //opening tag
+            OpenTagHandler openH = new OpenTagHandler();
+            result += openH.Process(tagContext, lineNoAttr);
+            Assert.AreEqual(lineNoAttr.IndexOf('>') + 1, result);
+
+            //data handler
+            DataContext dataContext = new DataContext();
+            DefaultHandler defaultH = new DefaultHandler();
+            result += defaultH.Process(dataContext, lineNoAttr.Substring(result));
+            Assert.AreEqual("Peter", (string)dataContext.Pop());
+            Assert.AreEqual(lineNoAttr.LastIndexOf('<'), result);
+
+            //closing tag
+            CloseTagHandler closeH = new CloseTagHandler();
+            result += closeH.Process(tagContext, lineNoAttr.Substring(result));
+            Assert.AreEqual(lineNoAttr.Length, result);
         }
 
         [TestMethod]
-        public void OpeningTagTestWithAttribute()
+        public void ProcessTagTestWithAttribute()
         {
             TagContext context = new TagContext();
             OpenTagHandler handler = new OpenTagHandler();
