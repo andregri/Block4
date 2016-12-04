@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Exercise03.Handler
 {
-    class DefaultHandler : IHandler
+    public class DefaultHandler : IHandler
     {
         public int Process(IContext context, string text)
         {
             int closingTagDelimeter = text.IndexOf('<');
-            string value = text.Substring(0, text.Length - closingTagDelimeter);
+            string value = text.Substring(0, closingTagDelimeter);
 
             context.Push(value);
 
