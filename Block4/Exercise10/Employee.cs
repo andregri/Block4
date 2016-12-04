@@ -8,20 +8,19 @@ namespace Exercise10
 {
     public abstract class Employee
     {
-        public string empName;
+        public string name;
 
         public string Name
         {
-            get {return empName; }
-            set {empName = value; }
+            get {return name; }
+            set {name = value; }
         }
 
-        public Employee(string empName)
+        public Employee(string name)
         {
-            Name = empName;
+            Name = name;
         }
 
-        public abstract decimal calcPaidCheck();     
-                
+        public abstract decimal calcPaidCheck();
     }
 }

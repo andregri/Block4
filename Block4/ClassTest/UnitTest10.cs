@@ -11,7 +11,7 @@ namespace ClassTest
 
         [TestInitialize]
         public void TestEmployee()
-        {            
+        {
             workers = new Employee[]
             {
                 new HourlyWorker("Pippo", 10.5m, 200m),
