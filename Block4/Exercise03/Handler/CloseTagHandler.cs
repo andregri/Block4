@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Exercise03.Handler
 {
-    class CloseTagHandler : IHandler
+    public class CloseTagHandler : IHandler
     {
         public int Process(IContext context, string text)
         {
@@ -17,9 +17,21 @@ namespace Exercise03.Handler
                 throw new ArgumentException("TagHandler needs TagContext.");
             }
 
-            string tagName = text.Substring(2, text.Length - 2);
-            //add exception
-            tagContext.Pop();
+            string tagName = text.Substring(2, text.IndexOf('>') - 2);
+            Tag tag;
+            try
+            {
+                tag = (Tag)tagContext.Pop();
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new ApplicationException("Miss closing tag.", e);
+            }
+
+            if (tag.Name != tagName)
+            {
+                throw new ApplicationException("Miss closing tag.");
+            }
 
             return text.Length;
         }
