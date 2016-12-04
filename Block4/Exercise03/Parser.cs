@@ -44,11 +44,12 @@ namespace Exercise03
             defaultContext = Data;
         }
 
-        public void Parse(StringReader reader)
+        public void Parse(TextReader reader)
         {
             int lineNumber = 0;
             string line;
 
+            reader.ReadLine();
             while ((line = reader.ReadLine()) != null)
             {
                 try
@@ -66,18 +67,21 @@ namespace Exercise03
 
         public void ParseLine(string line)
         {
+            line = line.Replace("\t", "");
+
             int processedLine = 0;
             IHandler h;
             while (processedLine < line.Length)
             {
-                if (!handlers.TryGetValue(line[0], out h))
+                if (handlers.TryGetValue(line[0], out h))
                 {
-                    processedLine += h.Process(contexts[h], line);
+                    processedLine = h.Process(contexts[h], line);
                 }
                 else
                 {
-                    processedLine += defaultHandler.Process(defaultContext, line);
+                    processedLine = defaultHandler.Process(defaultContext, line);
                 }
+                line = line.Substring(processedLine);
             }
         }
     }
