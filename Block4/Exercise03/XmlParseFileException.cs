@@ -9,7 +9,6 @@ namespace Exercise03
     public class XmlParseFileException : ApplicationException
     {
         private int line;
-        private string tagName;
         public MissingTagException ex
         {
             get;
@@ -24,11 +23,10 @@ namespace Exercise03
             }
         }
 
-        public XmlParseFileException(int line, string tagName, MissingTagException inner)
+        public XmlParseFileException(int line, MissingTagException inner)
             : base(null, inner)
         {
             this.line = line;
-            this.tagName = tagName;
             ex = inner;
         }
     }
