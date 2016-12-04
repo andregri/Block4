@@ -63,6 +63,12 @@ namespace Exercise03
                 
                 lineNumber++;
             }
+
+            if (Tags.Depth > 0)
+            {
+                throw new XmlParseFileException(lineNumber,
+                    new MissingClosingTagException(((Tag)Tags.Pop()).Name));
+            }
         }
 
         public void ParseLine(string line)
