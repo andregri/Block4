@@ -90,9 +90,9 @@ namespace Exercise07
         }
 
         public Person(string firstName, string lastName, DateTime birthday, string email)
-            : this(firstName, lastName, email)
         {
             Birthday = birthday;
+            Email = email;
         }
 
         public bool Adult
