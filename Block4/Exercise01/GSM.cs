@@ -43,6 +43,11 @@ namespace Exercise01
             get { return owner; }
             private set { owner = value; }
         }
+        public List<Call> CallHistory
+        {
+            get { return callHistory; }
+            set { callHistory = value; }
+        }
 
         public GSM(string model, string manufacturer, double price, string owner, string batteryModel,
             double batteryIdleTime, double batteryHoursTalk, BatteryType batteryType, double displaySize,

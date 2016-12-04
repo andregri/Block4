@@ -31,19 +31,11 @@ namespace Exercise01
             private set { duration = value; }
         }
 
-        public List<Call> CallHistory
-        {
-            get { return history; }
-            private set { history = value; }
-        }
-
         public Call(double duration)
         {
             Date = DateTime.Today;
             StartTime = DateTime.Now;
             CallDuration = duration;
-
-            CallHistory = new List<Call>();
         }
     }
 }
