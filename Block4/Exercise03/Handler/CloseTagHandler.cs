@@ -25,12 +25,12 @@ namespace Exercise03.Handler
             }
             catch (InvalidOperationException e)
             {
-                throw new ApplicationException("Miss closing tag.", e);
+                throw new MissingOpeningTagException(tagName, e);
             }
 
             if (tag.Name != tagName)
             {
-                throw new ApplicationException("Miss closing tag.");
+                throw new MissingClosingTagException(tagName);
             }
 
             return text.Length;
