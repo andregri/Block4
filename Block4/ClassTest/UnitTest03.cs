@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Exercise03;
 using Exercise03.Handler;
@@ -47,6 +48,19 @@ namespace ClassTest
             Assert.AreEqual("attr", tag.Attribute);
             Assert.AreEqual(1, tag.Value);
             Assert.AreEqual(lineWithAttr.IndexOf('>') + 1, result);
+        }
+
+        [TestMethod]
+        public void ParserTest()
+        {
+            string file = @"../../file.xml";
+            string[] expected = {"Peter", "21", "Games", "C#", "Java" };
+            TextReader reader = new StreamReader(file);
+            Parser parser = new Parser();
+            parser.Parse(reader);
+            string[] values = parser.Data.ToArray();
+
+            CollectionAssert.AreEqual(expected, values);
         }
     }
 }
