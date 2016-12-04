@@ -80,7 +80,7 @@ namespace Exercise07
             : this(firstName, lastName)
         {
             Email = email;
-            Email = ScreenName + "@gmail.com";
+            Email = FirstName + "." + LastName + "@gmail.com";
         }
 
         public Person(string firstName, string lastName, DateTime birthday)
