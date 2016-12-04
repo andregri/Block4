@@ -20,5 +20,10 @@ namespace Exercise03
         {
             return data[data.Count - 1] ?? null;
         }
+
+        public string[] ToArray()
+        {
+            return data.ToArray();
+        }
     }
 }
