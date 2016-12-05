@@ -65,12 +65,20 @@ namespace Exercise05
         {
             List<int> nodes = childNodes.Keys.ToList<int>();
             List<Dictionary<int, int[]>> allSubgraph = new List<Dictionary<int, int[]>>();
+            List<int> visited = new List<int>();
 
-            foreach(int currentNode in nodes)
+            foreach (int currentNode in nodes)
             {
                 var temp = FindSubgraph(currentNode);
-                if (!allSubgraph.Contains(temp))
+                if (!visited.Contains(currentNode))
+                {
                     allSubgraph.Add(temp);
+                    visited.Add(currentNode);
+                    foreach (var k in temp.Keys)
+                    {
+                        visited.AddRange(temp[k]);
+                    }
+                }
             }
 
             return allSubgraph.ToArray();
