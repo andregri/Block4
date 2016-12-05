@@ -10,7 +10,7 @@ namespace Exercise01
     {
         private string model = null;
         private string manufacturer = null;
-        private double price = 0;
+        private  decimal price = 0;
         private string owner = null;
         public Battery battery;                             // set to public just for unit test purpose
         public Display display;                             // set to public just for unit test purpose
@@ -27,7 +27,7 @@ namespace Exercise01
             get { return manufacturer; }
             private set { manufacturer = value; }
         }
-        public double Price
+        public  decimal Price
         {
             get { return price; }
             private set
@@ -49,7 +49,7 @@ namespace Exercise01
             set { callHistory = value; }
         }
 
-        public GSM(string model, string manufacturer, double price, string owner, string batteryModel,
+        public GSM(string model, string manufacturer,  decimal price, string owner, string batteryModel,
             double batteryIdleTime, double batteryHoursTalk, BatteryType batteryType, double displaySize,
             uint displayColors)
         {
@@ -61,27 +61,27 @@ namespace Exercise01
             display = new Display(displaySize, displayColors);
         }
 
-        public GSM(string model, string manufacturer, double price, string owner, Battery battery, Display display)
+        public GSM(string model, string manufacturer,  decimal price, string owner, Battery battery, Display display)
             : this(model, manufacturer, price, owner, battery.Model, battery.IdleTime, battery.HoursTalk, battery.Type, display.Size, display.Colors) { }
 
-        public GSM(string model, string manufacturer, double price, string owner, string batteryModel, double batteryIdleTime, double batteryHoursTalk)
+        public GSM(string model, string manufacturer,  decimal price, string owner, string batteryModel, double batteryIdleTime, double batteryHoursTalk)
             : this(model, manufacturer, price, owner, batteryModel, batteryIdleTime, batteryHoursTalk, 0, 0, 0) { }
 
-        public GSM(string model, string manufacturer, double price, string owner, double displaySize, uint displayColors)
+        public GSM(string model, string manufacturer,  decimal price, string owner, double displaySize, uint displayColors)
             : this(model, manufacturer, price, owner, null, 0, 0, 0, displaySize, displayColors) { }
 
-        public GSM(string model, string manufacturer, double price, string owner, double batteryHoursTalk, BatteryType batteryType)
+        public GSM(string model, string manufacturer,  decimal price, string owner, double batteryHoursTalk, BatteryType batteryType)
             : this(model, manufacturer, price, owner, null, 0, batteryHoursTalk, batteryType, 0, 0) { }
 
-        public GSM(string model, string manufacturer, double price, string owner)
+        public GSM(string model, string manufacturer,  decimal price, string owner)
             : this(model, manufacturer, price, owner, null, 0, 0, 0, 0, 0) { }
 
-        public GSM(string model, string manufacturer, double price)
+        public GSM(string model, string manufacturer,  decimal price)
           : this(model, manufacturer, price, null, null, 0, 0, 0, 0, 0) { }
 
         static GSM()
         {
-            samsungGalaxyS7 = new GSM("GalaxyS7", "Samsung", 519.90, "Mr.Robot", new Battery(null, 217.40, 22, BatteryType.LiPo), new Display(5.1, 167000000));
+            samsungGalaxyS7 = new GSM("GalaxyS7", "Samsung", 519.90m, "Mr.Robot", new Battery(null, 217.40, 22, BatteryType.LiPo), new Display(5.1, 167000000));
         }
 
         public override string ToString()
@@ -119,12 +119,12 @@ namespace Exercise01
         }
 
         // ----------------------------------------------------------
-        public double GetCallPrice(double ppm) // where ppm = price per minute
+        public decimal GetCallPrice(decimal ppm) // where ppm = price per minute
         {
-            double totalAmount = 0;
+            decimal totalAmount = 0;
             foreach (Call call in callHistory)
             {
-                totalAmount += call.CallDuration * ppm;
+                totalAmount += (decimal)(call.CallDuration) * ppm;
             }
 
             return totalAmount;

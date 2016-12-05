@@ -11,7 +11,6 @@ namespace Exercise01
         private DateTime date;
         private DateTime startTime;
         private double duration;
-        private List<Call> history;
 
         public DateTime Date
         {
