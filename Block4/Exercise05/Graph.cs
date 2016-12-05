@@ -76,13 +76,7 @@ namespace Exercise05
                     visited.Add(currentNode);
                     foreach (var k in temp.Keys)
                     {
-                        foreach (var c in temp[k])
-                        {
-                            if (!visited.Contains(c))
-                            {
-                                visited.Add(c);
-                            }
-                        }
+                        visited.AddRange(temp[k]);
                     }
                 }
             }
