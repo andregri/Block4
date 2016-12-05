@@ -19,6 +19,7 @@ namespace ClassTest
         public void Initialize()
         {
             e = new Employee(first, last, birthday, email, address, salary);
+            e.AddAmount(e.Salary);
         }
 
         [TestMethod]
@@ -28,17 +29,17 @@ namespace ClassTest
         }
 
         [TestMethod]
-        public void RetrieveAmountDueTest()
-        {
-            // no amount have been added to salary yet
-            Assert.AreEqual(salary, e.Amount);
-        }
-
-        [TestMethod]
         public void AddAmountTest()
         {
             e.AddAmount(500);
-            Assert.AreEqual(salary + 500, e.Amount);
+            Assert.AreEqual(800.4m, e.Amount);
+        }
+
+        [TestMethod]
+        public void RetrieveAmountTest()
+        {
+            e.RetrieveAmount(100);
+            Assert.AreEqual(200.4m, e.Amount);
         }
     }
 }

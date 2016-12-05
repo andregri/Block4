@@ -36,11 +36,12 @@ namespace Exercise08
             }
         }
 
+        private decimal amount;
         public decimal Amount
         {
             get
             {
-                return Salary;
+                return this.amount;
             }
         }
 
@@ -49,11 +50,21 @@ namespace Exercise08
         {
             MailAddress = mailAddress;
             Salary = salary;
+            amount = 0;
         }
 
         public void AddAmount(decimal amount)
         {
-            Salary += amount;
+            this.amount += amount;
+        }
+
+        public void RetrieveAmount(decimal amount)
+        {
+            if (amount > Amount)
+            {
+                throw new ArgumentOutOfRangeException("You cannot retrieve more than your amount.");
+            }
+            this.amount -= amount;
         }
     }
 }
