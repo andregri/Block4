@@ -18,6 +18,7 @@ namespace Exercise08
             get;
         }
 
+        void RetrieveAmount(decimal amount);
         void AddAmount(decimal amount);
     }
 }
