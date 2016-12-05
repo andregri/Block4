@@ -61,8 +61,13 @@ namespace ClassTest
         public void FindAllSubgraph()
         {
             Dictionary<int, int[]>[] actual = graph.FindAllSubgraph();
-            AreEqual(expected1, actual[0]);
-            AreEqual(expected2, actual[1]);
+            Dictionary<int, int[]>[] expected = new Dictionary<int, int[]>[2];
+            expected[0] = expected1;
+            expected[1] = expected2;
+
+            Assert.AreEqual(expected.Length, actual.Length);
+            AreEqual(expected[0], actual[0]);
+            AreEqual(expected[1], actual[1]);
         }
     }
 }
